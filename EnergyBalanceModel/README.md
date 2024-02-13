@@ -5,7 +5,7 @@ This is a Python implementation of the very simple energy balance model as deriv
 
 After this the bifucation diagrams for Q and epsilon are plotted. To find the equilibria. the [Scipy Brentq](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html) package has been used. For Q, we get the following:
 
-![alt text](Q_bifurcation.png)
+![alt text](Q_Bifurcation.png)
 
 And for epsilon:
 
