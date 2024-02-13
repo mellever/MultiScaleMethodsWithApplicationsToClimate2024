@@ -1,5 +1,5 @@
 # Energy balance model
-This is a Python implementation of the energy balance model as derived in the lectures. The model is given by the following differential equation:
+This is a Python implementation of the energy balance model as derived in the lectures. The model is described by the following differential equation:
 
 $$ c \frac{dT}{dt} = Q(1-\alpha) - \varepsilon \sigma T^4$$
 
