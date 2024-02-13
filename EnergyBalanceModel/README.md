@@ -3,6 +3,10 @@ This is a Python implementation of the energy balance model as derived in the le
 
 $$ c \frac{dT}{dt} = Q(1-\alpha) - \varepsilon \sigma T^4$$
 
+Where
+
+$$ \alpha = \frac{1}{2} - \frac{\tanh\left(\frac{T-265}{10}\right)}{5} $$
+
 We now define LHS =  $Q(1-\alpha)$ and RHS = $\varepsilon \sigma T^4$. First the base scenario is plotted to display that we have multiple equilibria in the base scenario. This results in the following plot:
 
 ![alt text](BaseScenario.png)
