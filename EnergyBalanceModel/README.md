@@ -1,7 +1,7 @@
 # Energy balance model
 This is a Python implementation of the energy balance model as derived in the lectures. The model is given by the following differential equation:
 
-$$ c \frac{dT}{dt} = Q(1-alpha) - \varepsilon * \sigma *T^4$$
+$$ c \frac{dT}{dt} = Q(1-\alpha) - \varepsilon \sigma T^4$$
 
 
 First the base scenario is plotted to display that we can have multiple equilibria for different Q and epsilon. This results in the following plot:
