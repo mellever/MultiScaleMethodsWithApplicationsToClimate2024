@@ -75,7 +75,7 @@ plt.plot(T, LHS(T, Q0), color="tab:blue", label="LHS")
 plt.plot(T, RHS(T), color="tab:red", label="RHS")
 plt.legend()
 plt.grid()
-plt.savefig('BaseScenario.pdf')
+plt.savefig('BaseScenario.png')
 
 #Values T and parameters for which we try to find the equilibrium
 Q_list = np.linspace(0.5, 1.5, steps)*Q0
@@ -101,7 +101,7 @@ plt.xlabel("Q/Q0")
 plt.ylabel("T [K]")
 plt.grid()
 plt.legend()
-plt.savefig('Q_Bifurcation.pdf')
+plt.savefig('Q_Bifurcation.png')
 
 
 #Computing the epsilon bifurcation diagram
@@ -116,14 +116,14 @@ T_us = np.concatenate(([T_s[m]], T_us, [T_s[n]]))
 #Plot epsilon bifurcation diagram
 plt.figure()
 plt.title("Epsilon bifurcation diagram energy balance model")
-plt.plot(eps_s[:m]/eps0, T_s[:m], color="tab:purple", label="Stable")
-plt.plot(eps_us/eps0, T_us, color="tab:orange", label="Unstable")
-plt.plot(eps_s[n:]/eps0, T_s[n:], color="tab:purple")
+plt.plot(eps_s[:m], T_s[:m], color="tab:purple", label="Stable")
+plt.plot(eps_us, T_us, color="tab:orange", label="Unstable")
+plt.plot(eps_s[n:], T_s[n:], color="tab:purple")
 plt.xlabel("Epsilon")
 plt.ylabel("T [K]")
 plt.grid()
 plt.legend()
-plt.savefig('eps_Bifurcation.pdf')
+plt.savefig('eps_Bifurcation.png')
 
 
 
