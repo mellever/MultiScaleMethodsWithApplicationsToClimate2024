@@ -1,5 +1,13 @@
 # Energy balance model
-This is a Python implementation of the very simple energy balance model as derived in the lectures. First the base scenario is plotted to display that we can have multiple equilibria for different Q and epsilon. This results in the following plot:
+This is a Python implementation of the energy balance model as derived in the lectures. The model is described by the following differential equation:
+
+$$ c \frac{dT}{dt} = Q(1-\alpha) - \varepsilon \sigma T^4$$
+
+Where
+
+$$ \alpha = \frac{1}{2} - \frac{\tanh\left(\frac{T-265}{10}\right)}{5} $$
+
+We now define LHS =  $Q(1-\alpha)$ and RHS = $\varepsilon \sigma T^4$. First the base scenario is plotted to display that we have multiple equilibria in the base scenario. This results in the following plot:
 
 ![alt text](BaseScenario.png)
 
