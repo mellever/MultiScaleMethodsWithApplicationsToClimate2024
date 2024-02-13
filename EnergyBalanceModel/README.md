@@ -5,7 +5,7 @@ $$ c \frac{dT}{dt} = Q(1-\alpha) - \varepsilon \sigma T^4$$
 
 We now define:
 
-$$ LHS = \varepsilon \sigma T^4 \\ RHS = Q(1-\alpha) $$
+$$ LHS = \varepsilon \sigma T^4 \qquad  RHS = Q(1-\alpha) $$
 
 First the base scenario is plotted to display that we can have multiple equilibria for different Q and epsilon. This results in the following plot:
 
