@@ -33,6 +33,9 @@ def central_diff(f, a, Q, eps, h=0.01):
 
 #Function for computing the bifurcation diagram
 def compute_bifurcation(T_list, P_list):
+    #Temperature step size
+    dT = np.abs(T_list[0] - T_list[1])
+
     #Lists for saving
     P_s = []
     P_us = []
@@ -46,7 +49,7 @@ def compute_bifurcation(T_list, P_list):
             try: 
                 #Find the root of the function
                 if P_list[0]==0: T = T = brentq(f, T0-1, T0+1, args=(Q0, P))
-                else: T = brentq(f, T0-1, T0+1, args=(P,eps0))
+                else: T = brentq(f, T0-dT, T0+dT, args=(P,eps0))
 
                 #Determine the derivative at the root using central differences
                 if P_list[0]==0: deriv = central_diff(f, T, Q0, P, 0.01)
