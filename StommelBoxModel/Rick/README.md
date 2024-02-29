@@ -13,15 +13,15 @@ where $\sigma$ is some parameter controlling the strength of the stochastic term
 
 To compute realizations of $X(t)$, the Euler–Maruyama (EM) method was used.  
 
-The following plots show realizations of $X(t)$ for various values of $\sigma$
+The following plots show realizations of $X(t)$ for various values of $\sigma$, and $\lambda=0.2$
 
-<img src="realization_sigma_0.1.jpg" width="550" height="400">
+<img src="figures/realization_sigma_0.1.jpg" width="550" height="400">
 
-<img src="realization_sigma_0.15.jpg" width="550" height="400">
+<img src="figures/realization_sigma_0.15.jpg" width="550" height="400">
 
-<img src="realization_sigma_0.2.jpg" width="550" height="400">
+<img src="figures/realization_sigma_0.2.jpg" width="550" height="400">
 
-<img src="realization_sigma_0.3.jpg" width="550" height="400">
+<img src="figures/realization_sigma_0.3.jpg" width="550" height="400">
 
 
 Subsequently, the escape time $\mathbb{E}_{A}[\tau(x)]$ from the set $ A =[x^{*}_{2}, \infty)$ starting at $x = x^{*}_{1}$ was estimated, for various values of $\sigma$. 
@@ -30,6 +30,6 @@ This estimation will be done by taking a sample of realizations of $X(t)$ for wh
 
 From the experiment the following plot was produced
 
-<img src="escape_time.png" width="550" height="400">
+<img src="figures/escape_time.png" width="550" height="400">
 
 where we indeed observe a decreasing estimate of the escape time as $\sigma$ increases.
