@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as integrate
+from scipy.linalg import expm
 
 #Define xdot = f
 def f(x, l):
@@ -19,32 +20,21 @@ def euler(z0, n, N, sigma, l, dt):
 
 #Compute V
 def compute_V(l, z_arr):
-    V = []
-    for z in z_arr:
-        I, err = integrate.quad(lambda x: -f(x,l), 0, z)
-        V.append(I)
-    return np.array(V)
+    V = -l*z_arr - np.sign(1-z_arr)*(np.power(z_arr,3)/3 - np.power(z_arr,2)/2 + 1/6)
+    return V
 
+#Define rho
 def rho(V, sigma):
     return np.exp(-2*V/np.power(sigma,2))
 
 #Define solution
 def rho_inf(sigma, l, z_arr, dz):
-    V = compute_V(l, z_arr)
+    V = compute_V(l, z_arr) #This can be done analytically 3
     C = np.sum(rho(V, sigma)*dz)
     return rho(V, sigma)/C
 
+#Function that solves the SDE
 def solve(T, dt, N):
-    #Numerical Constants
-    n = int(T/dt) #Amount of steps in the simulation
-    sigma = 0.2 #Amplitude of the noise
-    dz = 1e-2 #Stepsize z
-
-    #Initial conditions
-    l = 0.1 #Take between 0 and 0.4
-    z0 = 0.4 #Take between 0 and 1.4
-
-
     #Compute some solutions of the sde
     z = euler(z0, n, N, sigma, l, dt)
     t = np.linspace(0, T, n)
@@ -52,28 +42,48 @@ def solve(T, dt, N):
     z_arr = np.arange(np.min(z), np.max(z), dz)
     p_inf = rho_inf(sigma, l, z_arr, dz)
 
-    times = [0, 1, 2, 100, 500, len(z)-1]
+    times = [0, 1, 2, 100, 200, 300, len(z)-1]
+    cmap = plt.get_cmap('hsv')
+    colors = cmap(np.linspace(0,1,len(times)))
     data = z[times]
     
     if N == 1: return z, z_arr, p_inf
-    else: return data, times, z_arr, p_inf
+    else: return data, times, z_arr, p_inf, colors
 
 
+#Numerical Constants
+sigma = 0.2 #Amplitude of the noise
+dz = 1e-2 #Stepsize z
+N = 1 #Ensemble size
 
-N = 1000
+#Initial conditions
+l = 0.1 #Take between 0 and 0.4
+z0 = 0.4 #Take between 0 and 1.4
+
 
 if N == 1:
-    z, z_arr, p_inf = solve(5e3, 1e-2, N)
+    T = 1e3
+    dt = 1e-2
+    n = int(T/dt) #Amount of steps in the simulation
+    z, z_arr, p_inf = solve(T, dt, N)
+    plt.plot(z_arr, p_inf, label=r'$\rho_\infty$', linewidth=1, c='black')
     counts, bins = np.histogram(z, density=True, bins=100)
     plt.stairs(counts, bins, label="Numerical")
+    plt.title("Probability density plot at T = "+str(T))
+
 else:
-    z, times, z_arr, p_inf = solve(10, 1e-2, N)
+    z, times, z_arr, p_inf, colors = solve(10, 1e-2, N)
+    plt.plot(z_arr, p_inf, label=r'$\rho_\infty$', linewidth=2, c='black')
     for i in range(len(z)):
         counts, bins = np.histogram(z[i], density=True, bins=50)
-        plt.stairs(counts, bins, label="timestep = "+str(times[i]))
-plt.plot(z_arr, p_inf, label=r'$\rho_\infty$', linewidth=5, c='r')
+        plt.stairs(counts, bins, color=colors[i], label="timestep = "+str(times[i]))
+        plt.title("Probability density ensemble N = "+str(N))
 plt.xlim(np.min(z), np.max(z))
 plt.xlabel("z")
 plt.ylabel("Density")
 plt.legend()
 plt.show()
+
+
+
+
