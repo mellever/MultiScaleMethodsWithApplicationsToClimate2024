@@ -13,8 +13,6 @@ $$L = -D_1 \text{diag}(f) + \frac{\sigma^2}{2}D_2$$
 
 Where $D_1$ and $D_2$ are the differences matrices approximating the first and second derivative respectively. We choose to approximate the derivatives by central differences. If we take period boundary conditions the matrices are given by
 
-
-
 $$ 
 D_1 = \frac{1}{2\Delta x} \begin{pmatrix}
 0 & 1 & 0 & \cdots & 0 & 0 & -1 \\
@@ -36,9 +34,6 @@ $$ D_2 =  \frac{1}{\Delta x^2} \begin{pmatrix}
 0 & 0 & 0 & \cdots & 1 & -2 & 1 \\
 1 & 0 & 0 & \cdots & 0 & 1 & -2 \\
 \end{pmatrix} $$
-
-And 
-
 And diag(f) is simply the evaluation of $f$ on the gridpoints and putting these of the diagonal. Making use of this, we can find the probability density via
 
 $$\rho(t+\Delta t) = \exp{\Delta t L} \rho(t)$$
