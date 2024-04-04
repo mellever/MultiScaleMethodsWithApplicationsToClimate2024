@@ -39,7 +39,7 @@ $$ D_2 =  \frac{1}{\Delta x^2} \begin{pmatrix}
 
 And diag($f$) is simply the evaluation of $f$ on the gridpoints and putting these of the diagonal. Making use of this, we can find the probability density via
 
-$$\rho(t+\Delta t) = \exp{\left(\Delta t L}\right) \rho(t)$$
+$$\rho(t+\Delta t) = \exp{\left(\Delta t L\right)} \rho(t)$$
 
 Note that we have to choose the domain large enough such that the probability density is small at the boundaries.
 
