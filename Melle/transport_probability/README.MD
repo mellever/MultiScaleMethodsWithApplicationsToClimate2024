@@ -35,5 +35,11 @@ $$ D_2 = \frac{1}{\Delta x^2} \begin{pmatrix}
 0 & 0 & 0 & \cdots & 1 & -2 & 1 \\
 1 & 0 & 0 & \cdots & 0 & 1 & -2 \\
 \end{pmatrix} $$
+And diag($f$) is simply the evaluation of $f$ on the gridpoints and putting these of the diagonal. Making use of this, we can find the probability density via
+
+$$\rho(t+\Delta t) = \exp{\Delta t L} \rho(t)$$
+
+Note that we have to choose the domain large enough such that the probability density is small at the boundaries.
+
 
 
