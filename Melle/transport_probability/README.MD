@@ -36,3 +36,4 @@ $$ D_2 = \frac{1}{\Delta x^2} \begin{pmatrix}
 1 & 0 & 0 & \cdots & 0 & 1 & -2 \\
 \end{pmatrix} $$
 
+
