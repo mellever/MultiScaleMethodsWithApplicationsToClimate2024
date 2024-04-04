@@ -41,13 +41,13 @@ And diag($f$) is simply the evaluation of $f$ on the gridpoints and putting thes
 
 $$\rho(t+\Delta t) = \exp{\left(\Delta t L\right)} \rho(t)$$
 
-Note that we have to choose the domain large enough such that the probability density is small at the boundaries. This gives the following results
+Note that we have to choose the domain large enough such that the probability density is small at the boundaries. This gives the following results for $\sigma = 0.2, x_0 = 0.5$ 
 
-![alt text](eps_Bifurcation.png)
+![alt text](0.50.10.2.png)
 
-![alt text](eps_Bifurcation.png)
+![alt text](0.50.150.2.png)
 
-![alt text](eps_Bifurcation.png)
+![alt text](0.50.30.2.png)
 
 
 
