@@ -49,7 +49,7 @@ def L_FP(x, dx, l, sigma):
     D1[0,-1] = -1
     D2[-1,0] = 1
     D2[0,-1] = 1
-    
+
     #Scale by stepsize
     D1 = D1/(2*dx)
     D2 = D2/np.power(dx,2)
@@ -70,10 +70,7 @@ def solve(x, dx, t, dt, rho0, l, sigma):
     #Solve for rho
     for n in range(len(t)-1):
         print("Progress = ", np.round(n/(len(t)-1)*100,3), "%")
-        #rho_nn =  np.dot(expm(dt*L), rho[n,:]) #Not normalized rho
-        rho_nn = csr_array(expm(dt*L)).dot(rho[n,:]) #Not normalized rho efficient version
-        C = np.sum(np.abs(rho_nn)*dx) #Normalization constant
-        rho[n+1,:] = rho_nn/C 
+        rho[n+1,:] = csr_array(expm(dt*L)).dot(rho[n,:]) #Compute rho using sparse matrix product
 
     #Return the result
     return rho
@@ -107,7 +104,7 @@ bbox = dict(boxstyle='round', fc='blanchedalmond', ec='orange', alpha=0.5)
 stats = (f'$x_0$ = ' +str(x0) +'\n' f'$\\lambda$ = '+str(l)+'\n' f'$\\sigma$ = '+str(sigma))
 t_indices = np.array([1,2,10,len(t)-1])
 t_plot = t_indices*dt
-fname = str(x0)+str(l)+str(sigma)+'.pdf'
+fname = str(x0)+str(l)+str(sigma)+'.png'
 
 #Plot the results
 plt.figure(figsize=(19.20, 10.80), dpi=80)
@@ -120,13 +117,6 @@ plt.ylabel(r'$\rho$')
 plt.grid()
 plt.legend(fontsize=20)
 plt.text(-1.9, 8.4, stats, bbox=bbox, fontsize=20)
-#plt.savefig("/home/melle/OneDrive/Master/Year1/MultiscaleMethods/transport_probability/"+fname, format='pdf')
+plt.xlim(-1,2)
+#plt.savefig("/home/melle/OneDrive/Master/Year1/MultiscaleMethods/transport_probability/"+fname, format='png')
 plt.show()
-
-
-
-
-
-
-
-
