@@ -53,6 +53,9 @@ For $\lambda = 0.3$
 
 ![\lambda = 0.3](0.50.30.2.png)
 
+Note that all these results make sense when comparing with the bifurcation diagram:
+
+![bifurcation diagram](bifurcation_diagram.png)
 
 
 
