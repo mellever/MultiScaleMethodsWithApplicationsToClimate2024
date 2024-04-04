@@ -26,7 +26,7 @@ $$
 
 And 
 
-$$ D_2 = \frac{1}{\Delta x^2} \begin{pmatrix}
+$$ D_2 =  \begin{pmatrix}
 -2 & 1 & 0 & \cdots & 0 & 0 & 1 \\
 1 & -2 & 1 & \cdots & 0 & 0 & 0 \\
 0 & 1 & -2 & \cdots & 0 & 0 & 0 \\
