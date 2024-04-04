@@ -25,6 +25,8 @@ D_1 = \frac{1}{2\Delta x} \begin{pmatrix}
 \end{pmatrix}
 $$
 
+And
+
 $$ D_2 =  \frac{1}{\Delta x^2} \begin{pmatrix}
 -2 & 1 & 0 & \cdots & 0 & 0 & 1 \\
 1 & -2 & 1 & \cdots & 0 & 0 & 0 \\
@@ -35,7 +37,7 @@ $$ D_2 =  \frac{1}{\Delta x^2} \begin{pmatrix}
 1 & 0 & 0 & \cdots & 0 & 1 & -2 \\
 \end{pmatrix} $$
 
-And diag(f) is simply the evaluation of $f$ on the gridpoints and putting these of the diagonal. Making use of this, we can find the probability density via
+And diag($f$) is simply the evaluation of $f$ on the gridpoints and putting these of the diagonal. Making use of this, we can find the probability density via
 
 $$\rho(t+\Delta t) = \exp{\Delta t L} \rho(t)$$
 
