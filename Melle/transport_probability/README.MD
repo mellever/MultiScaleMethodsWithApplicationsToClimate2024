@@ -1,7 +1,7 @@
 # Solving the Fokker Planck equation
 The Fokker-Planck operator is given by
 
-$$ \mathcal{L}^* \rho = -\partial_x(\rho f) + \frac{\sigma^2}{2}\partial_{xx} \rho
+$$ \mathcal{L}^* \rho = -\partial_x(\rho f) + \frac{\sigma^2}{2}\partial_{xx} \rho $$
 
 Where in our application $f$ is given by the Stommel 2-box model
 
